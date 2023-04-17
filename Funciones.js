@@ -11,7 +11,7 @@ function Lector_For (){
         EquipoA= Equipo.find(ver=> ver.Id==iterator.Equipo_Id_2),
         
         TorneoAux= Torneo.find(e=> e.Id===iterator.Torneo_Id)
-        console.log(`El partido: ${iterator.Partido_Id} del Torneo: ${TorneoAux.Descripciont} entre el equipo: ${iterator.Equipo_Id_1}  ${EquipoAux.Descripcion} con ${iterator.Goles_1} goles y ${iterator.Equipo_Id_2}  ${EquipoA.Descripcion}  con ${iterator.Goles_1} goles  existieron las sisguientes `);
+        console.log(`El partido: ${iterator.Partido_Id} del Torneo: ${TorneoAux.Descripciont} entre el equipo: ${iterator.Equipo_Id_1}  ${EquipoAux.Descripcion} con ${iterator.Goles_1} goles y ${iterator.Equipo_Id_2}  ${EquipoA.Descripcion}  con ${iterator.Goles_1} goles  existieron las sisguientes ${iterator.Observacion}`);
         
     }
 
