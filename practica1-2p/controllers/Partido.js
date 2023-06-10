@@ -1,7 +1,7 @@
 const { response } = require('express')
 const { Partido } = require('../models')
 
-//CONSULTAR REGISTROS
+//CONSULTAR partido
 const getPartidos= async (req, res = response )=>{
     const { limit = 10 , since=0 } =  req.query;
     const query = { status:true };
@@ -21,19 +21,18 @@ const getPartidos= async (req, res = response )=>{
     })
     
 }
-//CONSULTAR REGISTRO POR ID
+//Consutla por id
 const getPartido= async (req, res =  response)=>{
     const {id} = req.params
     const partidos=  await Partido.findById(id).populate('ID_Torneo ID_Equipo_1 ID_Equipo_2');
     res.json(partidos);
 }
-//CREAR REGISTRO
+//Crear
 const createPartido= async (req, res = response)=>{
     const { status, user, ...body } =  req.body;
     
     const data = {
         ...body,
-        //ES INDISPENSABLE PONER EL ID DEL PLATO Y DEL PACIENTE
         ID_Equipo_1: body.ID_Equipo_1,
         ID_Equipo_2: body.ID_Equipo_2,
         ID_Torneo: body.ID_Torneo,
@@ -48,15 +47,14 @@ const createPartido= async (req, res = response)=>{
     const newPartido =  await partidos.save();
     res.status(201).json(newPartido);
 }
-//ACTUALIZAR REGISTRO
+//ACTUALIZAR PARTIDO
 const updatePartido= async (req, res=response)=>{
     const {id} = req.params;
     const { status, ...data } =  req.body;
-    // console.log(id,data)
     const updatedPartido =  await Partido.findByIdAndUpdate(id,data, {new: true} )
     res.json(updatedPartido);
 }
-//ELIMINAR REGISTRO
+//ELIMINAR pARTIDO
 const deletePartido= async (req, res = response)=>{
     const {id} = req.params;
     const deletedPartido =  await Partido.findByIdAndUpdate(id, {status:false}, {new:true} );

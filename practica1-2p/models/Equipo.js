@@ -1,6 +1,6 @@
 const { model, Schema } = require('mongoose');
 
-//ATRIBUTOS DE PACIENTE
+//ATRIBUTOS DE equipo
 const EquipoSchema = Schema(
     {
         nombre:{

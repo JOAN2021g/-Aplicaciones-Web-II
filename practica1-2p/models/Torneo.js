@@ -1,5 +1,5 @@
 const { model, Schema } = require('mongoose');
-//ATRIBUTOS DE LOS PLATOS
+//ATRIBUTOS DE LOS torneo
 const TorneoSchema = Schema(
     {
         nombre:{

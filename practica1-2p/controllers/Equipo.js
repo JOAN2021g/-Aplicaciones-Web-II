@@ -1,7 +1,7 @@
 const { response } = require('express');
 const { Equipo } = require('../models');
 
-//CONSULTAR PACIENTES GENERAL
+//CONSULTAR EQUIPO
 const getEquipo = async (req,res = response )=>{
     const { limite = 10 , desde=0 } =  req.query;
     const query = { status:true };
@@ -18,13 +18,13 @@ const getEquipo = async (req,res = response )=>{
       equipos
     })
 }
-//CONSULTA DE PACIENTES POR ID
+//CONSULTA POR ID
 const getequipo = async (req, res= response)=>{
     const {id} = req.params
     const equipos=  await Equipo.findById(id);
     res.json(equipos);
 }
-//INSERTAR PACIENTES
+//INSERTAR 
 const createEquipos = async(req,res=response)=>{
     const { status, ...body } =  req.body;
     
@@ -49,14 +49,14 @@ const createEquipos = async(req,res=response)=>{
     const newequipo =  await equipos.save();
     res.status(201).json(newequipo);
 }
-//ACTUALIZAR PACIENTES POR ID
+//ACTUALIZAR 
 const updateEquipo = async(req,res =  response)=>{
     const {id} = req.params;
     const { status, ...data } =  req.body;
     const categoryEquipo=  await Equipo.findByIdAndUpdate(id,data, {new: true} )
     res.json(categoryEquipo);
 }
-//ELIMINAR PACIENTES POR ID
+//ELIMINAR 
 const deleteEquipo =  async (req, res= response)=>{
     const {id} = req.params;
     const deletedEquipo =  await Equipo.findByIdAndUpdate(id, {status:false}, {new:true} );

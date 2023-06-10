@@ -1,7 +1,7 @@
 const { response } = require('express');
 const { Torneo } = require('../models');
 
-//CONSULTAR PLATOS GENERAL
+//CONSULTAR torneo GENERAL
 const getTorneos = async (req,res = response )=>{
     const { limite = 10 , desde=0 } =  req.query;
     const query = { status:true };
@@ -18,13 +18,13 @@ const getTorneos = async (req,res = response )=>{
     torneos
     })
 }
-//CONSULTA DE PLATOS POR ID
+//CONSULTA torneo por id
 const getTorneo= async (req, res= response)=>{
     const {id} = req.params
     const torneos=  await Torneo.findById(id);
     res.json(torneos);
 }
-//INSERTAR NUEVOS PLATOS
+//INSERTAR NUEVOS torneos 
 const createTorneos = async(req,res=response)=>{
     const { status, ...body } =  req.body;
     
@@ -50,14 +50,14 @@ const createTorneos = async(req,res=response)=>{
     const newTorneos =  await torneos.save();
     res.status(201).json(newTorneos);
 }
-//ACTUALIZAR PLATOS POR ID
+//ACTUALIZAR toreno ubicando ID
 const updateTorneo = async(req,res =  response)=>{
     const {id} = req.params;
     const { status, ...data } =  req.body;
     const categoryTorneo =  await Torneo.findByIdAndUpdate(id,data, {new: true} )
     res.json(categoryTorneo);
 }
-//ELIMINAR PLATO POR ID
+//ELIMINAR torneo ubicando ID
 const deleteTorneo =  async (req, res= response)=>{
     const {id} = req.params;
     const deletedtorneo =  await Torneo.findByIdAndUpdate(id, {status:false}, {new:true} );

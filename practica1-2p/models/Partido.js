@@ -1,5 +1,5 @@
 const { model, Schema } = require('mongoose');
-//ATRIBUTOS DE REGISTRO
+//ATRIBUTOS DE partido
 const PartidoSchema = Schema(
     {
         ID_Equipo_1: {

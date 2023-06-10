@@ -13,15 +13,14 @@ const { validateFields } = require('../middlewares')
 
 const router= Router();
 
-//CONSULTA GENERAL
 router.get('/', getEquipo );
 
-//CONSULTA INDIVIDUAL
+
 router.get('/:id'
 ,check('id', 'Este no es un ID valido').isMongoId()
  , getequipo );
 
- //INSERTAR DATOS
+
  router.post('/',[
     check('nombre', 'El nombre del equipo es necesario').not().isEmpty(),
     check('descripcion', 'La descripcion es necesaria').not().isEmpty(),
@@ -29,10 +28,10 @@ router.get('/:id'
     validateFields
 ], createEquipos);
 
-//ACTUALIZAR
+
  router.put('/:id', updateEquipo);
 
- //ELIMINAR
+
  router.delete('/:id',[
     check('id','Debe ser un id valido').isMongoId()
 ], deleteEquipo);
