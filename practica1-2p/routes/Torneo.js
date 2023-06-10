@@ -7,7 +7,7 @@ const {
     createTorneos,
     updateTorneo,
     deleteTorneo
-    } = require('../controllers').Plato;
+    } = require('../controllers').Torneo;
 
 const { validateFields } = require('../middlewares')
 

@@ -7,7 +7,7 @@ const { getRegistros,
     createPartido,
     updatePartido,
     deletePartido
-    } = require('../controllers').Registro;
+    } = require('../controllers').Partido;
 
 const { validateFields } = require('../middlewares')
 
