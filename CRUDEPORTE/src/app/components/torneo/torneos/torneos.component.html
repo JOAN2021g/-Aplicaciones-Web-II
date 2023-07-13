@@ -1,0 +1,58 @@
+  <div class="container p-4">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+          <p class="h2">torneos</p>
+        </blockquote>
+    </figure>
+
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card card-body">
+          <form #loginForm="ngForm" (ngSubmit)="submitData(loginForm.value)">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <input name="nombre" ngModel placeholder="nombre" id="nombre" type="text" class="input-field" />
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group mb-3">
+                  <input name="descripcion" ngModel placeholder="descripcion" id="descripcion" type="text" class="input-field" />
+                </div>
+              </div>
+            </div>
+            
+         
+            <div class="d-grid gap-2 col-6 mx-auto">
+                <button class="btn btn-secondary btn-block">
+                    Guardar
+                </button>
+                <button type="button" class="btn btn-dark ">
+                    Cancelar
+                </button>
+                
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">descripcion</th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let torneos of datatorneos.torneos">
+          
+          <td>{{torneos.nombre}}</td>
+          <td>{{torneos.descripcion}}</td>
+            <td><a (click)="deletetorneo(torneos.nombre)">Eliminar</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+

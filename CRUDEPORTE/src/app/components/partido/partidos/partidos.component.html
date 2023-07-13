@@ -1,0 +1,70 @@
+ 
+  <div class="container p-4">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+          <p class="h2">Partidos</p>
+        </blockquote>
+    </figure>
+
+    <div class="row ">
+
+        <div class="col-sm-6 offset-md-3 ">
+            <div class="card card-body">
+                <form #loginForm="ngForm" (ngSubmit)="submitData(loginForm.value)">
+                    <div class="form-group mb-3">
+                      <input name="ID_Equipo_1" ngModel placeholder="ID_Equipo_1" id="ID_Equipo_1" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="ID_Equipo_2" ngModel placeholder="ID_Equipo_2" id="ID_Equipo_2" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="Observacion" ngModel placeholder="Observacion" id="Observacion" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="Goles_equipo_1" ngModel placeholder="Goles_equipo_1" id="Goles_equipo_1" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="Goles_equipo_2" ngModel placeholder="Goles_equipo_2" id="Goles_equipo_2" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="ID_Torneo" ngModel placeholder="ID_Torneo" id="ID_Torneo" type="text" class="input-field" />
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-secondary btn-block">
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-dark ">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <table class="table">
+              <thead>
+                <tr >
+                  <th scope="col">ID Equipo 1</th>
+          <th scope="col">ID Equipo 2</th>
+          <th scope="col">Obseravion</th>
+          <th scope="col">Goles equipo 1</th>
+          <th scope="col">Goles equipo 2</th>
+          <th scope="col">ID Torneo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let partido of datapartidos.partidos">
+                  <td>{{partido.ID_Equipo_1}}</td>
+                  <td>{{partido.ID_Equipo_2}}</td>
+                  <td>{{partido.Observacion}}</td>
+                  <td>{{partido.Goles_equipo_1}}</td>
+                  <td>{{partido.Goles_equipo_2}}</td>
+                  <td>{{partido.ID_Torneo}}</td>
+                  <!-- <td>
+                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+

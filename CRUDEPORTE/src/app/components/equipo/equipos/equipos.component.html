@@ -1,0 +1,55 @@
+
+  <div class="container p-4">
+    <figure class="text-center">
+        <blockquote class="blockquote">
+          <p class="h2">Equipos</p>
+        </blockquote>
+    </figure>
+
+    <div class="row ">
+
+        <div class="col-sm-6 offset-md-3 ">
+            <div class="card card-body">
+                <form #loginForm="ngForm" (ngSubmit)="submitData(loginForm.value)">
+                    <div class="form-group mb-3">
+                      <input name="nombre" ngModel placeholder="nombre" id="nombre" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="descripcion" ngModel placeholder="descripcion" id="descripcion" type="text" class="input-field" />
+                    </div>
+                    <div class="form-group mb-3">
+                      <input name="serie" ngModel placeholder="serie" id="serie" type="text" class="input-field" />
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-secondary btn-block">
+                            Guardar
+                        </button>
+                        <button type="button" class="btn btn-dark ">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <table class="table">
+              <thead>
+                <tr >
+                  <th scope="col">Tipo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipo of dataequipos.equipos">
+                  <td>{{equipo.nombre}}</td>
+                  <td>{{equipo.descripcion}}</td>
+                  <td>{{equipo.serie}}</td>
+                  <td><button (click)="deleteequipo(equipo.nombre)">Eliminar</button></td>
+                 
+
+                  <!-- <td>
+                    <button type="button" class="btn btn-danger btn-sm">Eliminar</button>
+                  </td> -->
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
