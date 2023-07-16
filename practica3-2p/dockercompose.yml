@@ -1,0 +1,53 @@
+version: '3'
+
+
+services:
+  equipos:
+    build: ./equipo
+    depends_on:
+      - dataequipos
+    environment:
+      - PORT=2500
+      - MONGODB_CNN=mongodb://dataequipos:27017/test
+    # ports:
+    #   - "2500:2500"
+  torneos:
+    build: ./torneo
+    depends_on:
+      - datatoreos
+    environment:
+      - PORT=2500
+      - MONGODB_CNN=mongodb://datatorneos:27017/test
+    # ports:
+    #   - "2500:2500"
+  partidos:
+    build: ./partido
+    depends_on:
+      - dataequipo
+    environment:
+      - PORT=2500
+      - MONGODB_CNN=mongodb://datapartido:27017/test
+  dataequipos:
+    image: mongo
+    # ports:
+    #   - "27017:27017"
+  
+  datatorneos:
+    image: mongo
+    # ports:
+    #   - "27017:27017"
+
+  datapartidos:
+    image: mongo
+    # ports:
+    #   - "27017:27017"
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - equipos
+      - torneos
+      - partidos
